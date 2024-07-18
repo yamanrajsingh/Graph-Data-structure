@@ -1,0 +1,21 @@
+ 
+ void dfs(int node, int V, vector<int>&adj[],vector<int>&vis,vector<int>&ans)
+ {
+    vis[node]=1;
+    ans.push_back(node);
+    for(auto it:adj[node])
+    {
+        if(vis[it]==0)
+        {
+            dfs(it,V,adj,vis,ans);
+        }
+    }
+ }
+
+vector<int> dfsGraph(int V, vector<int>adj[])
+{
+    vector<int>ans,vis(V,0);
+    int start = 0;
+    dfs(start, V,adj,vis,ans);
+    return ans;
+}
